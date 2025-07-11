@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote
+    name="SuperiorOS"
+    fetch="https://github.com/SuperiorOS-Violet"
+    review=".."
+    revision="refs/heads/sixteen" />
+
+  <!-- bootable -->
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="SuperiorOS" />
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="SuperiorOS" />
+
+  <project path="bionic" name="bionic" groups="pdk" remote="SuperiorOS" />
+
+  <!-- build -->
+  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="SuperiorOS">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed,sysui-studio" remote="SuperiorOS">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- external -->
+  <project path="external/e2fsprogs" name="external_e2fsprogs" remote="SuperiorOS" />
+  <project path="external/gptfdisk" name="external_gptfdisk" remote="SuperiorOS" />
+  <project path="external/mksh" name="external_mksh" remote="SuperiorOS" />
+  <project path="external/tinycompress" name="external_tinycompress" remote="SuperiorOS" />
+
+  <!-- frameworks -->
+  <project path="frameworks/native" name="frameworks_native" remote="SuperiorOS" />
+
+  <!-- hardware -->
+  <project path="hardware/google/pixel" name="hardware_google_pixel" remote="SuperiorOS" />
+  <project path="hardware/libhardware" name="hardware_libhardware" groups="pdk" remote="SuperiorOS" />
+
+  <!-- packages -->
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="SuperiorOS" />
+
+  <!-- system -->
+  <project path="system/bpf" name="system_bpf" groups="pdk" remote="SuperiorOS" />
+  <project path="system/core" name="system_core" groups="pdk" remote="SuperiorOS" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="SuperiorOS" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="SuperiorOS" />
+
+  <!-- vendor -->
+  <project path="vendor/superior" name="vendor_superior" remote="SuperiorOS" />
+</manifest>
+
